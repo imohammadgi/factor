@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>فاکتور فروش</title>
+</head>
+
+<body dir="rtl">
+
+
+    <div id="Wrapper">
+
+        <header id="Header" class="wide_wrap">
+
+            <img class="logo" src="" alt="لوگو">
+
+            <h1 class="text_header">فاکتور فروش</h1>
+
+        </header>
+
+        <div id="Container" class="wide_wrap">
+            <br><br>
+            <div class="saler">
+                <h3>مشخصات فروشنده</h3>
+
+                <form action="#" class="saler_form">
+                    نام ( شخص حقیقی / حقوقی ) :
+                    <input type="text">
+                    شماره اقتصادی :
+                    <input type="text">
+                    شماره ثبت :
+                    <input type="text">
+                    <br>
+                    نشانی کامل استان :
+                    <input class="input_city" type="text">
+                    شهرستان :
+                    <input class="input_city" type="text">
+                    کد پستی :
+                    <input type="text">
+                    تلفن :
+                    <input type="text">
+                    <br>
+                    آدرس پستی :
+                    <input class="input_adress" type="text">
+                    شماره ملی :
+                    <input type="text">
+                    فکس :
+                    <input type="text">
+
+                </form>
+
+            </div>
+
+            <div class="costumer">
+                <h3>مشخصات خریدار</h3>
+
+                <form action="#" class="costumer_form">
+                    نام ( شخص حقیقی / حقوقی ) :
+                    <input type="text">
+                    شماره اقتصادی :
+                    <input type="text">
+                    شماره ثبت :
+                    <input type="text">
+                    <br>
+                    نشانی کامل استان :
+                    <input class="input_city" type="text">
+                    شهرستان :
+                    <input class="input_city" type="text">
+                    کد پستی :
+                    <input type="text">
+                    تلفن :
+                    <input type="text">
+                    <br>
+                    آدرس پستی :
+                    <input class="input_adress" type="text">
+                    شماره ملی :
+                    <input type="text">
+                    فکس :
+                    <input type="text">
+
+                </form>
+
+            </div>
+            <br><br>
+            <div class="factor">
+                <h3>مشخصات کالا</h3>
+                <br>
+                <div class="buttons">
+
+
+
+                </div>
+
+
+                <table id="table">
+                    <tr>
+                        <th>ردیف</th>
+                        <th>کد کالا</th>
+                        <th>نام/شرح کالا</th>
+                        <th>تعداد</th>
+                        <th>مبلغ کالا</th>
+                        <th>تخفیف</th>
+                        <th>مالیات بر ارزش افزوده</th>
+                        <th>جمع کل</th>
+                        <th>جمع کل پس از تخفیف</th>
+                        <th>جمع کل پس از مالیات</th>
+                        <th><button class="Add_Btn" onclick="AddRow(this)"><i class="fa fa-plus"></i></button></th>
+                    </tr>
+
+                    <tr>
+                        <th>جمع کل</th>
+                        <th>تعداد کل</th>
+                        <th>کل تخفیف</th>
+                        <th>جمع کل پس از تخفیف</th>
+                        <th>کل مالیات </th>
+                        <th>جمع کل پس از مالیات</th>
+                        <th colspan="5">مبلغ به حروف</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td colspan="5"></td>
+                    </tr>
+                </table>
+                <br><br>
+
+
+            </div>
+
+        </div>
+
+        <footer id="Footer" class="wide_wrap">
+
+        </footer>
+
+    </div>
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
