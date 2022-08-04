@@ -22,6 +22,15 @@ function AddRow() {
 
     cell1.innerHTML = lastRowIndex;
 
+
+    cell2.classList.add('calculate');
+    cell3.classList.add('calculate');
+    cell4.classList.add('calculate');
+    cell5.classList.add('calculate');
+    cell6.classList.add('calculate');
+    cell4.innerHTML = 0;
+    cell5.innerHTML = 0;
+    cell6.innerHTML = 0;
     cell2.contentEditable = true;
     cell3.contentEditable = true;
     cell4.contentEditable = true;
@@ -29,7 +38,7 @@ function AddRow() {
     cell6.contentEditable = true;
     cell11.innerHTML =
         "<button class='Del_Btn' onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button class='Down_Row' onclick='DownRow(this)' ><i class='fa fa-arrow-down'></i></button><button class='Up_Row' onclick='UpRow(this)' ><i class='fa fa-arrow-up'></i></button> ";
-
+    Setcalctotd();
 }
 
 function DelRow(r) {
@@ -81,13 +90,77 @@ function DownRow(r) {
 
 function calculate() {
 
+    var table = document.getElementById("table");
+    var lastIndex = table.rows.length;
+    var totalCount = 0;
+    var totalDiscount = 0;
+    var totalAmount = 0;
+    var totalTax = 0;
+    var totalAfterDiscount = 0;
+    var totalAfterTax = 0;
+    var rowAmount = 0;
+    var rowDiscount = 0;
+    var rowTax = 0;
+    var Tax = 0;
+
+    for (var i = 1; i < table.rows.length - 2; i++) {
+        //محاسبه ردیف
+        rowAmount = parseFloat(table.rows[i].cells.item(3).innerHTML) * parseFloat(table.rows[i].cells.item(4).innerHTML);
+        table.rows[i].cells.item(7).innerHTML = rowAmount;
+
+        rowDiscount = parseFloat(table.rows[i].cells.item(7).innerHTML) - parseFloat(table.rows[i].cells.item(5).innerHTML);
 
 
+        Tax = parseFloat(table.rows[i].cells.item(7).innerHTML) * 9 / 100;
+        table.rows[i].cells.item(6).innerHTML = Tax;
+
+        rowTax = parseFloat(table.rows[i].cells.item(6).innerHTML) + parseFloat(table.rows[i].cells.item(7).innerHTML);
+        table.rows[i].cells.item(9).innerHTML = rowTax;
+
+        if (rowDiscount < 0) {
+            alert("مبلغ تخفیف نباید بیشتر از مبلغ کالا باشد.")
+            table.rows[i].cells.item(8).innerHTML = 0;
+            table.rows[i].cells.item(5).innerHTML = parseFloat(table.rows[i].cells.item(7).innerHTML);
+        }
+        else {
+            table.rows[i].cells.item(8).innerHTML = rowDiscount;
+        }
+
+        // محاسبه جمع کل ها
+        totalCount = totalCount + parseFloat(table.rows[i].cells.item(3).innerHTML);
+        totalAmount = totalAmount + parseFloat(table.rows[i].cells.item(7).innerHTML);
+        totalDiscount = totalDiscount + parseFloat(table.rows[i].cells.item(5).innerHTML);
+        totalTax = totalTax + parseFloat(table.rows[i].cells.item(6).innerHTML);
+        totalAfterDiscount = totalAfterDiscount + parseFloat(table.rows[i].cells.item(8).innerHTML);
+        totalAfterTax = totalAfterTax + parseFloat(table.rows[i].cells.item(9).innerHTML);
+
+
+    }
+
+
+
+    table.rows[lastIndex - 2].cells.item(1).innerHTML = totalCount;
+    table.rows[lastIndex - 2].cells.item(2).innerHTML = totalTax;
+    table.rows[lastIndex - 2].cells.item(3).innerHTML = totalAmount;
+    table.rows[lastIndex - 2].cells.item(4).innerHTML = totalAfterDiscount;
+    table.rows[lastIndex - 2].cells.item(5).innerHTML = totalAfterTax;
+
+
+
+
+    var persiannumber = (totalAfterTax).num2persian() + ' ' + 'ریال';
+
+    table.rows[lastIndex - 1].cells.item(1).innerHTML = persiannumber;
 }
 
 
+window.addEventListener('load', (event) => {
+    Setcalctotd();
+});
 
-
-
-
-
+function Setcalctotd() {
+    var x = document.getElementsByClassName('calculate');
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener('keyup', calculate);
+    }
+}

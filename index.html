@@ -94,7 +94,10 @@
 
 
                 </div>
-
+                <input type="text" class="calculate">
+                <input type="text" class="calculate">
+                <input type="text" class="calculate">
+                <input type="text" class="calculate">
 
                 <table id="table">
                     <tr>
@@ -110,31 +113,42 @@
                         <th>جمع کل پس از مالیات</th>
                         <th><button class="Add_Btn" onclick="AddRow()"><i class="fa fa-plus"></i></button></th>
                     </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="calculate" contenteditable="true"></td>
+                        <td class="calculate" contenteditable="true"></td>
+                        <td class="calculate" contenteditable="true">0</td>
+                        <td class="calculate" contenteditable="true">0</td>
+                        <td class="calculate" contenteditable="true">0</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class='Del_Btn' onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button
+                                class='Down_Row' onclick='DownRow(this)'><i
+                                    class='fa fa-arrow-down'></i></button><button class='Up_Row'
+                                onclick='UpRow(this)'><i class='fa fa-arrow-up'></i></button></td>
+                    </tr>
 
                     <tr>
-                        <th>جمع کل</th>
-                        <th>تعداد کل</th>
-                        <th>کل تخفیف</th>
-                        <th>جمع کل پس از تخفیف</th>
-                        <th>کل مالیات </th>
-                        <th>جمع کل پس از مالیات</th>
-                        <th colspan="5">مبلغ به حروف</th>
+                        <td colspan="5">جمع کل</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td colspan="5"></td>
+                        <td colspan="5">مبلغ به حروف</td>
+                        <td colspan="6"></td>
+
                     </tr>
                 </table>
                 <br><br>
 
-                <button class="calc_Btn" onclick="calculate()"><i class="fa fa-calculator"></i></button>
                 <button class="print_Btn" onclick="print()"><i class="fa fa-print"></i></button>
-
+                <br><br>
 
             </div>
 
@@ -147,6 +161,7 @@
     </div>
 
     <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mahmoud-eskandari/NumToPersian/dist/num2persian-min.js"></script>
 
 </body>
 
