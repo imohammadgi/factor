@@ -5,6 +5,12 @@
     font-size: 10px;
 }
 
+@media print{
+    .noprint{
+        visibility: hidden;
+    }
+}
+
 body{
     background-color: whitesmoke;
 
@@ -20,21 +26,22 @@ body{
 #Wrapper{
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 #Header{
-    background-color: #bfbfbf;
-    height: 150px;
+    background-color: #0603d4d7;
+    height: 170px;
     border-radius:  0 0 35px 35px;
     box-shadow: 5px 5px 10px #101010;
 }
 
 .logo{
     float: right;
+    margin :10px 10px 0px 0px;
 }
 
 .text_header{
-    padding-top: 40px;
     text-align: center;
     color: aliceblue;
     font-family: sans-serif;
@@ -44,15 +51,16 @@ body{
 
 #Container{
     background-color: rgb(207, 207, 207);
-    height: auto;
-    border-radius:  35px 35px 35px 35px;
+    min-height: 100%;
+    border-radius:  35px 35px 0px 0px;
     box-shadow: 5px 5px 10px #515151;
-    
+    padding-bottom: 160px;
 }
 
 #Container h3{
     font-size: 3rem;
     text-align: center;
+    border-bottom: 1px solid black;
 }
 
 #Container input{
@@ -72,6 +80,9 @@ body{
 .input_adress{
     width: 300px !important;
 }
+.desc input{
+    width: 700px !important;
+}
 
 #Container input:focus{
    outline:  2px solid black !important;
@@ -82,11 +93,13 @@ body{
     height: 150px;
     margin: auto;
     text-align: right;
- 
+    border: 2px solid black;
+    border-bottom: none;
 }
 
 .saler_form{
     font-size: 2rem;
+    margin-right: 10px;
 }
 
 .costumer{
@@ -95,23 +108,27 @@ body{
     margin: auto;
     text-align: right;
     font-size: 2rem;
+    border: 2px solid black;
 }
 
 .costumer_form{
     font-size: 2rem;
+    margin-right: 10px;
 }
 
 table, th, td{
    border: 2px solid #101010;
    border-collapse: collapse;
-   margin: 2rem;
-   font-size: 1.5rem;
+   margin: 4rem;
+   padding: 0.5rem;
+   font-size: 2rem;
 }
 
 td{
     outline: none;
     padding: 0 !important;
     margin: 20px;
+    padding: 0.5rem;
 }
 
 .Add_Btn{
@@ -140,13 +157,6 @@ td{
     color: white;
 }
 
-.calc_Btn{
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    font-size: 2rem;
-    color: white;
-}
 .print_Btn{
     width: 50px;
     height: 50px;
@@ -155,17 +165,53 @@ td{
     color: white;
 }
 .factor{
-    width: 800px;
+    width: 1000px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
+.desc{
+    width: 920px;
+    height: auto;
+    margin: auto;
+    text-align: right;
+    border: 2px solid black;
+    font-size: 3rem;
+    padding-right: 10px;
+}
+.desc form{
+    font-size: 2rem;
+    padding-right: 10px;
+}
+.desc p{
+    font-size: 2rem;
+    display: inline;
+    margin-left: 260px;
+}
+
 
 #Footer{
-    background-color: #bfbfbf;
-    height: 150px;
+    background-color: #0603d4d7;
+    height: 170px;
     border-radius: 35px 35px 0 0;
     box-shadow: 5px 5px 10px #101010;
+    position: absolute;
+    clear: both;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
 }
+
+#Footer h2{
+    text-align: center;
+    color: aliceblue;
+    font-family: sans-serif;
+    font-size: 3rem;
+    margin-top: 10px;
+}
+
 

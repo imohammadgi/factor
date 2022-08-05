@@ -37,7 +37,7 @@ function AddRow() {
     cell5.contentEditable = true;
     cell6.contentEditable = true;
     cell11.innerHTML =
-        "<button class='Del_Btn' onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button class='Down_Row' onclick='DownRow(this)' ><i class='fa fa-arrow-down'></i></button><button class='Up_Row' onclick='UpRow(this)' ><i class='fa fa-arrow-up'></i></button> ";
+        "<button class='Del_Btn'id='noprint'  onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button class='Down_Row' id='noprint' onclick='DownRow(this)' ><i class='fa fa-arrow-down'></i></button><button class='Up_Row' id='noprint' onclick='UpRow(this)' ><i class='fa fa-arrow-up'></i></button> ";
     Setcalctotd();
 }
 
@@ -105,41 +105,48 @@ function calculate() {
 
     for (var i = 1; i < table.rows.length - 2; i++) {
         //محاسبه ردیف
-        rowAmount = parseFloat(table.rows[i].cells.item(3).innerHTML) * parseFloat(table.rows[i].cells.item(4).innerHTML);
-        table.rows[i].cells.item(7).innerHTML = rowAmount;
+        rowAmount = (parseFloat(table.rows[i].cells.item(3).innerHTML)) * (parseFloat(table.rows[i].cells.item(4).innerHTML));
+        rowDiscount = (parseFloat(table.rows[i].cells.item(7).innerHTML)) - (parseFloat(table.rows[i].cells.item(5).innerHTML));
+        Tax = (parseFloat(table.rows[i].cells.item(8).innerHTML) /100)*9;
+        rowTax = parseFloat(table.rows[i].cells.item(8).innerHTML) + parseFloat(table.rows[i].cells.item(6).innerHTML);
+       
+        rowAmount = isNaN(rowAmount) ? 0 : parseInt(rowAmount);
+        rowDiscount = isNaN(rowDiscount) ? 0 : parseInt(rowDiscount);
+        Tax = isNaN(Tax) ? 0 : parseInt(Tax);
+        rowTax = isNaN(rowTax) ? 0 : parseInt(rowTax);
 
-        rowDiscount = parseFloat(table.rows[i].cells.item(7).innerHTML) - parseFloat(table.rows[i].cells.item(5).innerHTML);
-
-
-        Tax = parseFloat(table.rows[i].cells.item(7).innerHTML) * 9 / 100;
-        table.rows[i].cells.item(6).innerHTML = Tax;
-
-        rowTax = parseFloat(table.rows[i].cells.item(6).innerHTML) + parseFloat(table.rows[i].cells.item(7).innerHTML);
-        table.rows[i].cells.item(9).innerHTML = rowTax;
-
-        if (rowDiscount < 0) {
-            alert("مبلغ تخفیف نباید بیشتر از مبلغ کالا باشد.")
-            table.rows[i].cells.item(8).innerHTML = 0;
-            table.rows[i].cells.item(5).innerHTML = parseFloat(table.rows[i].cells.item(7).innerHTML);
-        }
-        else {
-            table.rows[i].cells.item(8).innerHTML = rowDiscount;
-        }
-
+       
+        
+           
+       
+            table.rows[i].cells.item(6).innerHTML = Tax;
+            table.rows[i].cells.item(7).innerHTML = rowAmount;
+            table.rows[i].cells.item(9).innerHTML = rowTax;
+            
+            if (rowDiscount < 0) {
+                alert("مبلغ تخفیف نباید بیشتر از مبلغ کالا باشد.")
+                table.rows[i].cells.item(8).innerHTML = 0;
+                table.rows[i].cells.item(5).innerHTML = parseFloat(table.rows[i].cells.item(7).innerHTML)-1;
+            }
+            else {
+                table.rows[i].cells.item(8).innerHTML = rowDiscount;
+            }
+         
+        
         // محاسبه جمع کل ها
-        totalCount = totalCount + parseFloat(table.rows[i].cells.item(3).innerHTML);
+      
         totalAmount = totalAmount + parseFloat(table.rows[i].cells.item(7).innerHTML);
         totalDiscount = totalDiscount + parseFloat(table.rows[i].cells.item(5).innerHTML);
         totalTax = totalTax + parseFloat(table.rows[i].cells.item(6).innerHTML);
         totalAfterDiscount = totalAfterDiscount + parseFloat(table.rows[i].cells.item(8).innerHTML);
         totalAfterTax = totalAfterTax + parseFloat(table.rows[i].cells.item(9).innerHTML);
 
-
+        totalDiscount=isNaN(totalDiscount) ? 0 : parseInt(totalDiscount);
     }
 
 
 
-    table.rows[lastIndex - 2].cells.item(1).innerHTML = totalCount;
+    table.rows[lastIndex - 2].cells.item(1).innerHTML = totalDiscount;
     table.rows[lastIndex - 2].cells.item(2).innerHTML = totalTax;
     table.rows[lastIndex - 2].cells.item(3).innerHTML = totalAmount;
     table.rows[lastIndex - 2].cells.item(4).innerHTML = totalAfterDiscount;

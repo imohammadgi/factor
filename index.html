@@ -16,14 +16,15 @@
 
         <header id="Header" class="wide_wrap">
 
-            <img class="logo" src="" alt="لوگو">
+            <img class="logo" src="images/logo.png" alt="لوگو">
 
             <h1 class="text_header">فاکتور فروش</h1>
+            <br><br><br><br><br>
 
         </header>
 
         <div id="Container" class="wide_wrap">
-            <br><br>
+            <br><br><br>
             <div class="saler">
                 <h3>مشخصات فروشنده</h3>
 
@@ -85,20 +86,11 @@
                 </form>
 
             </div>
-            <br><br>
+            <br><br><br>
             <div class="factor">
                 <h3>مشخصات کالا</h3>
-                <br>
-                <div class="buttons">
-
-
-
-                </div>
-                <input type="text" class="calculate">
-                <input type="text" class="calculate">
-                <input type="text" class="calculate">
-                <input type="text" class="calculate">
-
+                
+              
                 <table id="table">
                     <tr>
                         <th>ردیف</th>
@@ -111,22 +103,22 @@
                         <th>جمع کل</th>
                         <th>جمع کل پس از تخفیف</th>
                         <th>جمع کل پس از مالیات</th>
-                        <th><button class="Add_Btn" onclick="AddRow()"><i class="fa fa-plus"></i></button></th>
+                        <th><button id="noprint" class="Add_Btn" onclick="AddRow()"><i class="fa fa-plus"></i></button></th>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td class="calculate" contenteditable="true"></td>
                         <td class="calculate" contenteditable="true"></td>
-                        <td class="calculate" contenteditable="true">0</td>
-                        <td class="calculate" contenteditable="true">0</td>
-                        <td class="calculate" contenteditable="true">0</td>
+                        <td class="calculate" contenteditable="true"></td>
+                        <td class="calculate" contenteditable="true"></td>
+                        <td class="calculate" contenteditable="true"></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><button class='Del_Btn' onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button
-                                class='Down_Row' onclick='DownRow(this)'><i
-                                    class='fa fa-arrow-down'></i></button><button class='Up_Row'
+                        <td><button class='Del_Btn' id="noprint" onclick='DelRow(this)'><i class='fa fa-minus'></i></button><button
+                                class='Down_Row' id="noprint"  onclick='DownRow(this)'><i
+                                    class='fa fa-arrow-down'></i></button><button class='Up_Row' id='noprint' 
                                 onclick='UpRow(this)'><i class='fa fa-arrow-up'></i></button></td>
                     </tr>
 
@@ -145,10 +137,21 @@
 
                     </tr>
                 </table>
-                <br><br>
+                <br>
+                <div class="desc">
+                    <form action="#">
+                        توضیحات :
+                       <input  type="text">
+                        <br><br>
+                       <p>امضای خریدار  :</p>
+                     
+                       <p>امضای فروشنده  :</p>
+ <br><br><br>
 
-                <button class="print_Btn" onclick="print()"><i class="fa fa-print"></i></button>
-                <br><br>
+                   </form>
+                </div>
+               
+                <br><br><br><br>
 
             </div>
 
@@ -156,6 +159,8 @@
 
         <footer id="Footer" class="wide_wrap">
 
+            <h2>بهترین تجربه فاکتور فروش آنلاین</h4>
+            
         </footer>
 
     </div>
